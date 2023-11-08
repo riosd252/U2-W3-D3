@@ -31,6 +31,17 @@ window.onload = () =>
           const cartItem = document.createElement("li");
           cartItem.className = "dropdown-item";
           cartItem.innerText = bookObj.title;
+          const removeFromCart = document.createElement("button");
+          removeFromCart.className = "btn btn-danger ms-2 p-1";
+          removeFromCart.type = "button";
+          removeFromCart.innerText = "Remove";
+          removeFromCart.addEventListener("click", () => {
+            cartItem.remove();
+            if (shoppingCart.innerText === "") {
+              emptyMessage.className = "dropdown-item";
+            }
+          });
+          cartItem.appendChild(removeFromCart);
           shoppingCart.appendChild(cartItem);
         });
         const trashBtn = document.createElement("button");
