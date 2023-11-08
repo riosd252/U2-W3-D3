@@ -20,8 +20,22 @@ window.onload = () =>
         const bookPrice = document.createElement("p");
         bookPrice.className = "card-text";
         bookPrice.innerText = "Price: €" + bookObj.price;
+        const addBtn = document.createElement("button");
+        addBtn.className = "btn btn-success";
+        addBtn.type = "button";
+        addBtn.innerText = "Add to cart";
+        addBtn.addEventListener("click", () => {
+          const emptyMessage = document.getElementById("empty-cart");
+          emptyMessage.remove();
+          const shoppingCart = document.getElementById("cart");
+          const cartItem = document.createElement("li");
+          cartItem.className = "dropdown-item";
+          cartItem.innerText = bookObj.title;
+
+          shoppingCart.appendChild(cartItem);
+        });
         const trashBtn = document.createElement("button");
-        trashBtn.className = "btn btn-primary";
+        trashBtn.className = "btn btn-danger";
         trashBtn.type = "button";
         trashBtn.innerText = "Remove";
         trashBtn.addEventListener("click", () => {
@@ -30,6 +44,7 @@ window.onload = () =>
 
         cardBody.appendChild(bookTitle);
         cardBody.appendChild(bookPrice);
+        cardBody.appendChild(addBtn);
         cardBody.appendChild(trashBtn);
         card.appendChild(cardImg);
         card.appendChild(cardBody);
