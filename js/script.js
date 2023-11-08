@@ -21,21 +21,20 @@ window.onload = () =>
         bookPrice.className = "card-text";
         bookPrice.innerText = "Price: €" + bookObj.price;
         const addBtn = document.createElement("button");
-        addBtn.className = "btn btn-success";
+        addBtn.className = "btn btn-success m-1";
         addBtn.type = "button";
         addBtn.innerText = "Add to cart";
         addBtn.addEventListener("click", () => {
           const emptyMessage = document.getElementById("empty-cart");
-          emptyMessage.remove();
+          emptyMessage.className = "d-none";
           const shoppingCart = document.getElementById("cart");
           const cartItem = document.createElement("li");
           cartItem.className = "dropdown-item";
           cartItem.innerText = bookObj.title;
-
           shoppingCart.appendChild(cartItem);
         });
         const trashBtn = document.createElement("button");
-        trashBtn.className = "btn btn-danger";
+        trashBtn.className = "btn btn-danger m-1";
         trashBtn.type = "button";
         trashBtn.innerText = "Remove";
         trashBtn.addEventListener("click", () => {
